@@ -24,14 +24,9 @@ workflows:
           vcs-type: << pipeline.project.type >>
           requires:
             [orb-tools/lint, orb-tools/review, orb-tools/pack, shellcheck/check]
-          
-          # Use a context to hold your publishing token.
-          
-          # github-token: CHI_TOKEN
-          #context: orb-publisher
-
+          github-token: GHI_TOKEN
+          context: orb-publisher
           filters: *filters
-      # Triggers the next workflow in the Orb Development Kit.
       - orb-tools/continue:
           pipeline-number: << pipeline.number >>
           vcs-type: << pipeline.project.type >>

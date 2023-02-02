@@ -9,3 +9,4 @@ usage:
       jobs:
         - orb-scheduled-pipelines/update-schedules:
             schedule-path: ./path/to/schedules.json
+            context: "context-with-access-token"

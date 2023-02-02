@@ -1,8 +1,9 @@
 version: 2.1
 
 description: >
-  Scheduled pipelines allows customers to trigger CircleCI pipelines periodically based on a schedule.
-  The Scheduled Pipelines Orb enables customers update pipeline schedules through a valid json file.
+  Scheduled pipelines allows users to trigger CircleCI pipelines periodically based on a schedule.
+  Schedules can range from daily, weekly, monthly or on a specific timetable.
+  The Scheduled Pipelines Orb lets you manage pipeline schedules directly from your config. 
 
 display:
-  source_url: "https://github.com/Circle-CI/scheduled-piplines"
+  source_url: "https://github.com/CircleCI-Public/scheduled-piplines-orb"
