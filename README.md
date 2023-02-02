@@ -6,6 +6,44 @@ A CircleCI orb for updating pipeline schedules.
 
 ---
 
+## Valid Schedule JSON Example
+
+The file needs to contain a `json` object with an array of `schedules`. Each element in the `schedules` array is a valid payload for a `POST` request to the CircleCI Schedules API. You can find more details about the [schema here](https://circleci.com/docs/api/v2/index.html#operation/createSchedule).
+
+Here's an example:
+
+```json
+{
+    "schedules": [{
+        "name": "string",
+        "timetable": {
+            "per-hour": 0,
+            "hours-of-day": [
+            0
+            ],
+            "days-of-week": [
+            "TUE"
+            ],
+            "days-of-month": [
+            0
+            ],
+            "months": [
+            "MAR"
+            ]
+        },
+        "attribution-actor": "current",
+        "parameters": {
+            "deploy_prod": true,
+            "branch": "feature/design-new-api"
+        },
+        "description": "string"
+        }
+    ]
+}
+```
+
+*NOTE:* In `timetable`, `days-of-week` and `days-of-month` are mutually exclusive and cannot be used together.
+
 ## Resources
 
 [CircleCI Orb Registry Page](https://circleci.com/orbs/registry/orb/CircleCI-Public/scheduled-piplines) - The official registry page of this orb for all versions, executors, commands, and jobs described.
