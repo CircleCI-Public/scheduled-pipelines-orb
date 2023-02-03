@@ -136,7 +136,6 @@ workflows:
           context: orb-publisher
           pub-type: production
           requires:
-            - orb-tools/lint
             - orb-tools/review
             - orb-tools/pack
             - integration-test
