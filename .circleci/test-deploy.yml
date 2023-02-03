@@ -130,7 +130,7 @@ workflows:
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
-          orb-name: CircleCI-Public/scheduled-pipelines
+          orb-name: circleci/scheduled-pipelines
           vcs-type: << pipeline.project.type >>
           github-token: GHI_TOKEN
           context: orb-publisher
