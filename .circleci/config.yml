@@ -1,0 +1,34 @@
+version: 2.1
+setup: true
+orbs:
+  orb-tools: circleci/orb-tools@11.6
+  shellcheck: circleci/shellcheck@3.1
+
+filters: &filters
+  tags:
+    only: /.*/
+
+workflows:
+  lint-pack:
+    jobs:
+      - orb-tools/lint:
+          filters: *filters
+      - orb-tools/pack:
+          filters: *filters
+      - orb-tools/review:
+          filters: *filters
+      - shellcheck/check:
+          filters: *filters
+      - orb-tools/publish:
+          orb-name: circleci/scheduled-pipelines
+          vcs-type: << pipeline.project.type >>
+          requires:
+            [orb-tools/lint, orb-tools/review, orb-tools/pack, shellcheck/check]
+          github-token: GHI_TOKEN
+          context: orb-publisher
+          filters: *filters
+      - orb-tools/continue:
+          pipeline-number: << pipeline.number >>
+          vcs-type: << pipeline.project.type >>
+          requires: [orb-tools/publish]
+          filters: *filters

@@ -1,0 +1,8 @@
+version: 2.1
+
+description: >
+  Easily manage scheduled pipelines as code in your version controlled repository with JSON. Trigger CircleCI pipelines based on a schedule that can range from daily, weekly, monthly or on a specific timetable.
+
+display:
+  source_url: "https://github.com/CircleCI-Public/scheduled-piplines-orb"
+  home_url: "https://circleci.com/docs/scheduled-pipelines"
